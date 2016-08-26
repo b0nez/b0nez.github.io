@@ -61,11 +61,15 @@ main {
     margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-    margin-left: auto;
+    margin-left: 10px;
     padding: 1px;
 }
 
 [class=sidebar] img {
+    margin-left: 20px;
+    margin-bottom: auto;
+    margin-right: auto;
+    margin-top: auto;
     border: 5px solid #34495E;
     border-radius: 25px;
     width: 200px;
@@ -90,7 +94,7 @@ li {
 
 
 
-/* Social Media Buttons */
+/* Social Media Buttons 
 
 .social {
     margin: 0;
@@ -138,21 +142,21 @@ li {
 }
 
 .social .fa-facebook:hover {
-    /* round facebook icon*/
+    /* round facebook icon
     background: #4060A5;
 }
 
 .social .fa-twitter:hover {
-    /* round twitter icon*/
+    /* round twitter icon
     background: #00ABE3;
 }
 
 .social .fa-google-plus:hover {
-    /* round google plus icon*/
+    /* round google plus icon
     background: #e64522;
 }
 
 .social .fa-github:hover {
-    /* round github icon*/
+    /* round github icon
     background: #343434;
 }
