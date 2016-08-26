@@ -58,13 +58,16 @@ main {
 }
 
 [class=sidebar] {
-    margin-right: 25px;
+    margin-right: auto;
     margin-top: auto;
     margin-bottom: auto;
-    padding: 10px;
+    margin-left: auto;
+    padding: 1px;
 }
 
 [class=sidebar] img {
+    border: 5px solid #34495E;
+    border-radius: 25px;
     width: 200px;
 }
 
@@ -76,6 +79,15 @@ main {
 [class=interests] header {
     font-size: 1.25em;
 }
+
+h3 {
+    text-align: center;
+}
+
+li {
+    text-align: auto;
+}
+
 
 
 /* Social Media Buttons */
