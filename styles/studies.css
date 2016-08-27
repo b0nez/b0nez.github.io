@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
 body {
     background: rgb(149, 165, 166);
     color: rgb(45, 45, 45);
@@ -11,7 +12,7 @@ header {
 }
 
 [id=all-contents] {
-    max-width: 850px;
+    max-width: 855px;
     margin: auto;
 }
 
@@ -91,3 +92,4 @@ h2 {
 .content section > a {
     text-decoration: none;
 }
+
