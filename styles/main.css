@@ -77,14 +77,31 @@ main {
 
 [class=content] {
     flex: 1;
-    padding: 15px;
+    padding: 6px;
 }
+
+h1 {
+    text-align: center;
+    font-size: 40px;
+    margin: 2px;
+    padding: 5px;
+}
+
+p {
+    font-size: 15px;
+    text-align: center;
+    margin: 5px;
+    padding: 0px;
+}
+
+
 
 [class=interests] header {
     font-size: 1.25em;
 }
 
 h3 {
+    font-size: 1.5em;
     text-align: center;
 }
 

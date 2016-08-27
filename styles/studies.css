@@ -72,8 +72,9 @@ main {
 
 [class=content] {
     flex: 1;
-    padding: 15px;
+    padding: 10px;
 }
+
 
 .content h1,
 h3,
@@ -92,4 +93,6 @@ h2 {
 .content section > a {
     text-decoration: none;
 }
+
+
 
