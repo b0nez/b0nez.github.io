@@ -1,6 +1,6 @@
-#Coding Bootcamp - Operation Spark
+<h1 style="text-align: center;" markdown="1">Coding Bootcamp - Operation Spark
 <hr>
-## b0nez.github.io
+ b0nez.github.io</h1>
 
 Development blog/website documenting my progress at the Operation Spark Coding Bootcamp Aug 11th - Sept. 22nd, 2016. 
 
