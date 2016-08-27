@@ -12,7 +12,7 @@ header {
 }
 
 [id=all-contents] {
-    max-width: 855px;
+    max-width: 875px;
     margin: auto;
 }
 
@@ -25,7 +25,7 @@ nav {
     margin-bottom: 20px;
     display: flex;
     padding: 10px;
-    border-radius: 20px/20px
+    border-radius: 20px/20px;
 }
 
 nav header {
