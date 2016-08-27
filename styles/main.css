@@ -12,7 +12,7 @@ header {
 }
 
 [id=all-contents] {
-    max-width: 800px;
+    max-width: 850px;
     margin: auto;
 }
 
@@ -67,9 +67,9 @@ main {
 
 [class=sidebar] img {
     margin-left: 20px;
-    margin-bottom: auto;
+    margin-bottom: 20px;
     margin-right: auto;
-    margin-top: auto;
+    margin-top: 20px;
     border: 5px solid #34495E;
     border-radius: 25px;
     width: 200px;
