@@ -2,114 +2,194 @@
 <html>
 
 <head>
-    <title>Studies</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="styles/studies.css">
+    <meta charset="utf-8">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    
+    <!-- Favorites/Bookmark Icon -->
+    
+    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    
+    <!-- STYLESHEETS -->
+    
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <link rel="stylesheet" href="./css/animate.min.css" />
+    
+    <!-- JavaScript -->
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="./js/jquery-2.1.0.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/blocs.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gist-embed/2.2/gist-embed.min.js"></script>
+
+    <!-- Import Google Fonts -->
+    
+    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+    <title>Studies</title>
 
 </head>
 
 <body>
-    <div id="all-contents">
-        <nav>
-            <header>Coding Bootcamp Development Website</header>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="portfolio.html">Portfolio</a></li>
-                <li><a href="studies.html">Studies</a></li>
-            </ul>
-        </nav>
+   
+    <!-- Main container -->
+    <div class="page-container">
+        <!-- Navigation Bloc -->
+        <div id="b-nav" class="bloc-container">
+            <div id="bloc-nav" class="d-mode-active d-mode">
+                <div class="bloc l-bloc bgc-white sticky-nav bg-center" id="nav-bloc">
+                    <div class="container b-divider bloc-sm">
+                        <nav class="navbar row">
+                            <div class="navbar-header"><a class="navbar-brand" href="index.html">Studies</a>
+                                <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+                            </div>
+                            <div class="collapse navbar-collapse navbar-1">
+                                <ul class="site-navigation nav navbar-nav">
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="portfolio.html">Portfolio</a></li>
+                                    <li><a href="studies.html">Studies</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navigation Bloc END -->
+
+
         <main>
             <div class="content">
                 <h1>Javascript</h1>
                 <hr>
                 <section>
                     <h2>Table of Contents</h2>
-                    <ol>
-                        <li><a href="#variables">Variables</a></li>
-                        <li><a href="#datatypes">Data Types</a>
-                            <ul>
-                                <li><a href="#datatypes">Strings</a></li>
-                                <li><a href="#datatypes">Numbers</a></li>
-                                <li><a href="#datatypes">Boolean</a></li>
-                                <li><a href="#datatypes">Arrays</a></li>
-                                <li><a href="#datatypes">Objects</a></li>
-                                <li><a href="#datatypes">Functions</a></li>
-                                <li><a href="#datatypes">undefined</a></li>
-                                <li><a href="#datatypes">null</a></li>
-                                <li><a href="#datatypes">NaN</a></li>
-                                <li><a href="#datatypes">Primitive v. Complex</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#operators">Operators</a>
-                            <ul>
-                                <li><a href="#operators">Assignment</a></li>
-                                <li><a href="#operators">Arithmetic</a></li>
-                                <li><a href="#operators">Comparison</a></li>
-                                <li><a href="#operators">Logical</a></li>
-                                <li><a href="#operators">Binary</a></li>
-                                <li><a href="#operators">Ternary</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#strings">String Manipulation</a></li>
-                        <li><a href="#controlflow">Control Flow</a>
-                            <ul>
-                                <li><a href="#controlflow">If, Else, Else-if</a></li>
-                                <li><a href="#controlflow">Switch Statements</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#loops">Loops</a>
-                            <ul>
-                                <li><a href="#loops">For Loops</a></li>
-                                <li><a href="#loops">For-in Loops</a></li>
-                                <li><a href="#loops">While Loops</a></li>
-                            </ul>
-                        </li>
-                        <li><a href="#functions">Functions</a>
-                            <ul>
-                                <li><a href="#functions">Syntax</a></li>
-                                <li><a href="#functions">Scope</a></li>
-                                <li><a href="#functions">Closure</a></li>
-                            </ul>
-                        </li>
-                    </ol>
+
+                    <div class="bloc l-bloc bgc-white" id="bloc-1">
+                        <div class="container bloc-lg">
+                            <div class="row">
+
+
+                                <div class="table-contents">
+                                    <ol>
+                                        <li><a href="#variables">Variables</a></li>
+                                        <li><a href="#datatypes">Data Types</a>
+                                            <ul>
+                                                <li><a href="#datatypes">Strings</a></li>
+                                                <li><a href="#datatypes">Numbers</a></li>
+                                                <li><a href="#datatypes">Boolean</a></li>
+                                                <li><a href="#datatypes">Arrays</a></li>
+                                                <li><a href="#datatypes">Objects</a></li>
+                                                <li><a href="#datatypes">Functions</a></li>
+                                                <li><a href="#datatypes">undefined</a></li>
+                                                <li><a href="#datatypes">null</a></li>
+                                                <li><a href="#datatypes">NaN</a></li>
+                                                <li><a href="#datatypes">Primitive v. Complex</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#operators">Operators</a>
+                                            <ul>
+                                                <li><a href="#operators">Assignment</a></li>
+                                                <li><a href="#operators">Arithmetic</a></li>
+                                                <li><a href="#operators">Comparison</a></li>
+                                                <li><a href="#operators">Logical</a></li>
+                                                <li><a href="#operators">Binary</a></li>
+                                                <li><a href="#operators">Ternary</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#strings">String Manipulation</a></li>
+                                        <li><a href="#controlflow">Control Flow</a>
+                                            <ul>
+                                                <li><a href="#controlflow">If, Else, Else-if</a></li>
+                                                <li><a href="#controlflow">Switch Statements</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#loops">Loops</a>
+                                            <ul>
+                                                <li><a href="#loops">For Loops</a></li>
+                                                <li><a href="#loops">For-in Loops</a></li>
+                                                <li><a href="#loops">While Loops</a></li>
+                                                <li><a href="#loops">Do-While Loops</a></li>
+                                            </ul>
+                                        </li>
+                                        <li><a href="#functions">Functions</a>
+                                            <ul>
+                                                <li><a href="#functions">Syntax</a></li>
+                                                <li><a href="#functions">Scope</a></li>
+                                                <li><a href="#functions">Closure</a></li>
+                                            </ul>
+                                        </li>
+                                    </ol>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+
                 </section>
                 <section>
-                    <hr>
-                    <a href="#variables" name="variables"><h2>Variables</h2></a>
-                    <code data-gist-id="afbd37f1da4373f2b118808889b04026" data-gist-file="jsbin.vudusi.js" data-gist-hide-footer="true"></code>
+                   
+                    <div class="gists">
+                        <hr>
+                        <a href="#variables" name="variables"><h2>Variables</h2></a>
+                        <code data-gist-id="afbd37f1da4373f2b118808889b04026" data-gist-file="jsbin.vudusi.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#datatypes" name="datatypes"><h2>Data Types</h2></a>
-                    <code data-gist-id="38e7a7926de3275bb8ab334b259f9d41" data-gist-file="jsbin.mewujen.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#datatypes" name="datatypes"><h2>Data Types</h2></a>
+                        <code data-gist-id="38e7a7926de3275bb8ab334b259f9d41" data-gist-file="jsbin.mewujen.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#operators" name="operators"><h2>Operators</h2></a>
-                    <code data-gist-id="3d523f854b4786a37bf51fa6f163cade" data-gist-file="jsbin.gakiqik.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#operators" name="operators"><h2>Operators</h2></a>
+                        <code data-gist-id="3d523f854b4786a37bf51fa6f163cade" data-gist-file="jsbin.gakiqik.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#strings" name="strings"><h2>String Manipulation</h2></a>
-                    <code data-gist-id="4733df759584c398a68415125e353516" data-gist-file="jsbin.joroxa.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#strings" name="strings"><h2>String Manipulation</h2></a>
+                        <code data-gist-id="4733df759584c398a68415125e353516" data-gist-file="jsbin.joroxa.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#controlflow" name="controlflow"><h2>Control Flow</h2></a>
-                    <code data-gist-id="220728286eda93ba5a301ce6c6d05c67" data-gist-file="jsbin.dosunuj.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#controlflow" name="controlflow"><h2>Control Flow</h2></a>
+                        <code data-gist-id="220728286eda93ba5a301ce6c6d05c67" data-gist-file="jsbin.dosunuj.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#loops" name="loops"><h2>Loops</h2></a>
-                    <code data-gist-id="bdf6f937332a3e31250f4626595eeaf6" data-gist-file="jsbin.qetihuk.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#loops" name="loops"><h2>Loops</h2></a>
+                        <code data-gist-id="bdf6f937332a3e31250f4626595eeaf6" data-gist-file="jsbin.qetihuk.js" data-gist-hide-footer="true"></code>
 
-                    <hr>
-                    <a href="#functions" name="functions"><h2>Functions</h2></a>
-                    <code data-gist-id="bb6355a4dac2e4a815719b51effff30f" data-gist-file="jsbin.fisuji.js" data-gist-hide-footer="true"></code>
+                        <hr>
+                        <a href="#functions" name="functions"><h2>Functions</h2></a>
+                        <code data-gist-id="bb6355a4dac2e4a815719b51effff30f" data-gist-file="jsbin.fisuji.js" data-gist-hide-footer="true"></code>
 
                 </section>
+                </div>
             </div>
         </main>
+
+
+        <!-- bloc-3 -->
+        <div class="bloc l-bloc bgc-white" id="bloc-3">
+            <div class="container bloc-lg">
+                <div class="row">
+                    <div class="col-sm-12"><span class="empty-column"></span></div>
+                </div>
+            </div>
+        </div>
+        <!-- bloc-3 END -->
+        
+        <!-- Footer - home -->
+        <div class="bloc l-bloc bgc-white" id="home">
+            <div class="container bloc-lg">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <h1 class="text-center  mg-sm">Hack the planet</h1></div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer - home END -->
     </div>
+    <!-- Main container END -->
 </body>
 
 </html>
