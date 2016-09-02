@@ -2,107 +2,44 @@
 <html>
 
 <head>
-    <meta charset="utf-8">
-    <meta name="keywords" content="">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
-
-    <!-- Favorites/Bookmark Icon -->
-
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
-
-    <!-- STYLESHEETS -->
-
-    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="./css/style.css">
-    <link rel="stylesheet" href="./css/animate.min.css" />
-
-    <!-- JavaScript -->
-
-    <script src="./js/jquery-2.1.0.min.js"></script>
-    <script src="./js/bootstrap.min.js"></script>
-    <script src="./js/blocs.min.js"></script>
-
-    <!-- Import Google Fonts -->
-
-    <link href='http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Josefin+Sans&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-
-
     <title>Home</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="styles/main.css">
 
 </head>
 
 <body>
-
-    <!-- Main container -->
-    <div class="page-container">
-        <!-- Navigation Bloc -->
-        <div class="bloc l-bloc bgc-white sticky-nav bg-center" id="nav-bloc">
-            <div class="container b-divider bloc-sm">
-                <nav class="navbar row">
-                    <div class="navbar-header"><a class="navbar-brand" href="index.html">Home</a>
-                        <button id="nav-toggle" type="button" class="ui-navbar-toggle navbar-toggle" data-toggle="collapse" data-target=".navbar-1"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
-                    </div>
-                    <div class="collapse navbar-collapse navbar-1">
-                        <ul class="site-navigation nav navbar-nav">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="portfolio.html">Portfolio</a></li>
-                            <li><a href="studies.html">Studies</a></li>
-                            <li><a href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </nav>
-            </div>
-        </div>
-        <!-- Navigation Bloc END -->
-        <!-- bloc-1 -->
-        <div class="bloc l-bloc bgc-white" id="bloc-1">
-            <div class="container bloc-lg">
-                <div class="row">
-                    <div class="col-sm-6"><img class="img-responsive center-block img-frame-lg" src="img/profile.png" width="375" /></div>
-                    <div class="col-sm-6">
-                        <h2 class="text-center mg-sm">Jesse M.</h2>
-                        <h3 class="text-center  mg-sm"><strong>Front End Developer</strong></h3>
-                        <br>
-                        <ul>
-                            <li>
-                                <h3 class="mg-sm ">UI/UX Web Designer</h3></li>
-                            <li>
-                                <h3 class="mg-sm ">JavaScript Enthusiast</h3></li>
-                            <li>
-                                <h3 class="mg-sm ">Master of the Universe</h3></li>
-                        </ul>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <!-- bloc-1 END -->
-
-        <div class="social social-container">
+    <div id="all-contents">
+        <nav>
+            <header>Coding Bootcamp Development Website</header>
             <ul>
-                <li><a href="#"><i class="fa fa-lg fa-facebook"></i></a></li>
-                <li><a href="http://twitter.com/o_jmenkin_o"><i class="fa fa-lg fa-twitter"></i></a></li>
-                <li><a href="#"><i class="fa fa-lg fa-google-plus"></i></a></li>
-                <li><a href="http://www.github.com/b0nez/"><i class="fa fa-lg fa-github"></i></a></li>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="studies.html">Studies</a></li>
             </ul>
-        </div>
-
-
-
-        <!-- Footer - home -->
-        <div class="bloc l-bloc bgc-white" id="home">
-            <div class="container bloc-lg">
-                <div class="row">
-                    <div class="col-sm-12">
-                        <h1 class="text-center  mg-sm">Hack the planet</h1></div>
-                </div>
+        </nav>
+        <main>
+            <div class="sidebar">
+                <img src="img/profile.png" alt="" style="width: 45%; height: 45%" />
             </div>
-        </div>
-        <!-- Footer - home END -->
+            <div class="content">
+                <h1>Jesse M.</h1>
+                <p>Front End Developer</p>
+                <p>UI/UX Web Designer</p>
+                <section class="interests">
+                    <h3>Interests</h3>
+                    <ul>
+                        <li>Web/UI Development</li>
+                        <li>Programming</li>
+                        <li>Hacking</li>
+                    </ul>
+                    <a href="Codecademy/index.html">Study Guide for Codecademy</a>
+                </section>
+            </div>
+        </main>
+
     </div>
-    <!-- Main container END -->
 </body>
 
 </html>
