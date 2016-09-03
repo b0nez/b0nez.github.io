@@ -31,7 +31,6 @@ _.identity = function(value) {
     return value;
 };
 
-
 /** _.typeOf()
 * Arguments:
 *   1) Anything
@@ -102,10 +101,15 @@ _.first = function(array, n) {
 
 _.last = function(array, n) {
     
-  
-  
-  
-    
+    if (n === undefined) {
+        return array[array.length - 1];
+    } else if (n > array.length) {
+        return array;
+    } else if (n < 0 || !Array.isArray(array)) {
+        return [];
+    } else {
+        return array.slice(n - 1, array.length)
+    }
 };
 
 /** _.each()
@@ -153,6 +157,16 @@ _.each = function(collection, action) {
 *   _.indexOf(["a","b","c"], "d") -> -1
 */
 
+_.indexOf = function(array, value) {
+    
+    for(var i = 0; i < array.length; i++) {
+        if(value === array[i]) {
+            return i;
+        }
+    }
+    return -1;
+};
+
 
 /** _.filter()
 * Arguments:
@@ -170,6 +184,22 @@ _.each = function(collection, action) {
 *   use _.each in your implementation
 */
 
+_.filter = function(array, action) {
+    
+    var newArray = [];
+    
+    if(!typeof(action) === "function") {
+        return array;
+    } else {
+        for(var i = 0; i < array.length; i++) {
+            var result = action(array[i], i, array);
+            if(result) {
+                newArray.push(array[i]);
+            }
+        }
+        return newArray;
+    }
+};
 
 /** _.reject()
 * Arguments:
@@ -184,6 +214,22 @@ _.each = function(collection, action) {
 *   _.reject([1,2,3,4,5], function(e){return e%2 === 0}) -> [1,3,5]
 */
 
+_.reject = function(array, action) {
+    
+    var newArray = [];
+    
+    if(!typeof(action) === "function") {
+        return array;
+    } else {
+        for (var i = 0; i < array.length; i++) {
+            var result = action(array[i], i, array);
+            if(!result){
+                newArray.push(array[i]);
+            }
+        }
+        return newArray;
+    }
+};
 
 /** _.partition()
 * Arguments:
@@ -204,6 +250,27 @@ _.each = function(collection, action) {
 }
 */
 
+_.partition = function(array, action) {
+    
+    var newArray = [];
+    var trueArray = [];
+    var falseArray = [];
+    
+    if(!typeof(action) === "function") {
+        return array;
+    } else {
+        for(var i = 0; i < array.length; i++) {
+            var result = action(array[i], i, array);
+            if(result) {
+                trueArray.push(array[i]);
+            } else {
+                falseArray.push(array[i]);
+            }
+        }
+        newArray.push(trueArray, falseArray);
+        return newArray;
+    }
+};
 
 /** _.unique()
 * Arguments:
@@ -215,6 +282,13 @@ _.each = function(collection, action) {
 *   _.unique([1,2,2,4,5,6,5,2]) -> [1,2,4,5,6]
 */
 
+_.unique = function(array) {
+    
+    var unique = array.filter(function(elem, index, self) {
+        return index == self.indexOf(elem);
+    });
+    return unique;
+};
 
 /** _.map()
 * Arguments:
@@ -232,6 +306,24 @@ _.each = function(collection, action) {
 *   _.map([1,2,3,4], function(e){return e * 2}) -> [2,4,6,8]
 */
 
+_.map = function(collection, action) {
+
+    var newArray = [];
+    if (typeof(action) === "function") {
+        if (Array.isArray(collection)) {
+            for (var i = 0; i < collection.length; i++) {
+                newArray.push(action(collection[i], i, collection));
+            }
+            return newArray;
+        }
+        else {
+            for (var x in collection) {
+                newArray.push(action(collection[x], x, collection));
+            }
+            return newArray;
+        }
+    }
+};
 
 /** _.pluck()
 * Arguments:
@@ -244,6 +336,18 @@ _.each = function(collection, action) {
 *   _.pluck([{a: "one"}, {a: "two"}], "a") -> ["one", "two"]
 */
 
+_.pluck = function(array, prop) {
+
+    var newArray = [];
+    if(typeof(prop) !== "string") {
+        return array;
+    } else {
+        for(var x in array) {
+            newArray.push(array[x].name);
+        }
+        return newArray;
+    }
+};
 
 /** _.contains()
 * Arguments:
@@ -260,6 +364,13 @@ _.each = function(collection, action) {
 *   _.contains([1,"two", 3.14], "two") -> true
 */
 
+_.contains = function(array, value) {
+    
+    for(var i = 0; i < array.length; i++) {
+        let index = array.indexOf(value);
+        return (index === -1) ? false : true;
+    }
+};
 
 /** _.every()
 * Arguments:
@@ -281,7 +392,21 @@ _.each = function(collection, action) {
 *   _.every([2,4,6], function(e){return e % 2 === 0}) -> true
 *   _.every([1,2,3], function(e){return e % 2 === 0}) -> false
 */
+_.every = function(collection, action) {
 
+    var newArray = [];
+    var count = 0;
+
+    for (var x in collection) {
+        newArray.push(action(collection[x], x, collection));
+    }
+    for (var j = 0; j < newArray.length; j++) {
+        if (newArray[j]) {
+            count += 1;
+        }
+    }
+    return (count === newArray.length) ? true : false;
+};
 
 /** _.some()
 * Arguments:
@@ -304,6 +429,25 @@ _.each = function(collection, action) {
 *   _.some([1,2,3], function(e){return e % 2 === 0}) -> true
 */
 
+_.some = function(collection, action) {
+
+    if(typeof(action) === "boolean"){
+        return action;
+    }
+
+    var newArray = [];
+    var count = 0;
+    
+    for (var x in collection) {
+        newArray.push(action(collection[x], x, collection));
+    }
+    for (var j = 0; j < newArray.length; j++) {
+        if (newArray[j]) {
+            count += 1;
+        }
+    }
+    return (count > 0) ? true : false;
+};
 
 /** _.reduce()
 * Arguments:
@@ -324,6 +468,21 @@ _.each = function(collection, action) {
 *   _.reduce([1,2,3], function(prev, curr){ return prev + curr}) -> 6
 */
 
+_.reduce = function(array, action, seed) {
+    
+    var result;
+    if(isNaN(seed)) {
+        seed = 1;
+    }
+    for(var i = 0; i < array.length; i++) {
+        if(i === 0) {
+            result = action(seed, array[i], i);
+        } else {
+            result = action(result, array[i], i);
+        }
+    }
+    return result;
+}
 
 /** _.extend()
 * Arguments:
@@ -340,6 +499,18 @@ _.each = function(collection, action) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
+_.extend = function(obj1, obj2, obj3) {
+    
+    for(var x in obj2) {
+        obj1[x] = obj2[x];
+    };
+    if(obj3) {
+        for(var y in obj3) {
+            obj1[y] = obj3[y];
+        }
+    }
+    return obj1;
+}
 
 // This is the proper way to end a javascript library
 }());
