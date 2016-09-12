@@ -6,6 +6,7 @@
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Strict_mode
 'use strict';
 
+
 // This allows us to use our "_" anywhere. In a web browser, properties of window
 // are available everywhere without having to type "window."
 /* global _ */
@@ -159,9 +160,9 @@ _.each = function(collection, action) {
 
 _.indexOf = function(array, value) {
     
-    for(var i = 0; i < array.length; i++) {
-        if(value === array[i]) {
-            return i;
+    for(var index = 0; index < array.length; index++) {
+        if(value === array[index]) {
+            return index;
         }
     }
     return -1;
@@ -186,7 +187,7 @@ _.indexOf = function(array, value) {
 
 _.filter = function(array, action) {
     
-    var newArray = [];
+    var filtered = [];
     
     if(!typeof(action) === "function") {
         return array;
@@ -194,10 +195,10 @@ _.filter = function(array, action) {
         for(var i = 0; i < array.length; i++) {
             var result = action(array[i], i, array);
             if(result) {
-                newArray.push(array[i]);
+                filtered.push(array[i]);
             }
         }
-        return newArray;
+        return filtered;
     }
 };
 
@@ -325,6 +326,8 @@ _.map = function(collection, action) {
     }
 };
 
+
+
 /** _.pluck()
 * Arguments:
 *   1) An array of objects
@@ -337,17 +340,27 @@ _.map = function(collection, action) {
 */
 
 _.pluck = function(array, prop) {
-
-    var newArray = [];
-    if(typeof(prop) !== "string") {
-        return array;
-    } else {
-        for(var x in array) {
-            newArray.push(array[x].name);
-        }
-        return newArray;
+    
+    var plucked;
+    for(var i = 0; i < array.length; i++){
+        plucked = _.map(array, function(names) {
+            return names.name;
+        });
     }
+    return plucked;
 };
+
+
+//     var newArray = [];
+//     if(typeof(prop) !== "string") {
+//         return array;
+//     } else {
+//         for(var x in array) {
+//             newArray.push(array[x].name);
+//         }
+//         return newArray;
+//     }
+// };
 
 /** _.contains()
 * Arguments:
@@ -396,7 +409,14 @@ _.every = function(collection, action) {
 
     var newArray = [];
     var count = 0;
-
+    if (action === undefined) {
+        for (var i = 0; i < collection.length; i++) {
+            if (collection[i]) {
+                count += 1
+            }
+        }
+        return (count === collection.length) ? true : false
+    }
     for (var x in collection) {
         newArray.push(action(collection[x], x, collection));
     }
@@ -430,23 +450,36 @@ _.every = function(collection, action) {
 */
 
 _.some = function(collection, action) {
-
-    if(typeof(action) === "boolean"){
-        return action;
-    }
-
-    var newArray = [];
-    var count = 0;
     
-    for (var x in collection) {
-        newArray.push(action(collection[x], x, collection));
-    }
-    for (var j = 0; j < newArray.length; j++) {
-        if (newArray[j]) {
-            count += 1;
+    
+    
+    if(action === undefined) {
+        for(var i = 0; i < collection.length; i++) {
+            return (collection[i]) ? true : false;
+        }
+    }  
+
+    if (typeof(action) === undefined && typeof(action) === "boolean") {
+        if (action) {
+            return true;
+        }
+        else {
+            return false;
         }
     }
-    return (count > 0) ? true : false;
+    else {
+        var newArray = [];
+        var count = 0;
+        for (var x in collection) {
+            newArray.push(action(collection[x], x, collection));
+        }
+        for (var j = 0; j < newArray.length; j++) {
+            if (newArray[j]) {
+                count += 1;
+            }
+        }
+        return (count > 0) ? true : false;
+    }
 };
 
 /** _.reduce()
@@ -471,8 +504,8 @@ _.some = function(collection, action) {
 _.reduce = function(array, action, seed) {
     
     var result;
-    if(isNaN(seed)) {
-        seed = 1;
+    if(seed === undefined) {
+        seed = array[0] / 10;
     }
     for(var i = 0; i < array.length; i++) {
         if(i === 0) {
@@ -503,14 +536,14 @@ _.extend = function(obj1, obj2, obj3) {
     
     for(var x in obj2) {
         obj1[x] = obj2[x];
-    };
+    }
     if(obj3) {
         for(var y in obj3) {
             obj1[y] = obj3[y];
         }
     }
     return obj1;
-}
+};
 
 // This is the proper way to end a javascript library
 }());
