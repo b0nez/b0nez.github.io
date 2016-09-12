@@ -29,7 +29,11 @@ var friends = [];
 
 // Function creates a random number between two numbers
 function randNum(min, max) {
+<<<<<<< HEAD
+  return Math.floor(Math.random() * (max - min + 1) + min);
+=======
   return Math.floor(Math.random() * (max - min) + min);
+>>>>>>> dffa6bf1be9695855b226a1b7c4c8b9ea4d7fa2f
 }
 
 // Assigns random number between 0 and (Animals Array length)
@@ -88,7 +92,7 @@ function create(object) {
     }
 
     if (object.name.length > 0 && object.species.length > 0) {
-        let index = allAnimals.indexOf((object.name).toLowerCase())
+        let index = allAnimals.indexOf((object.name).toLowerCase());
         if (index === -1) {
             animals.push(object);
         }
