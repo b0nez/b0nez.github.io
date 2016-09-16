@@ -129,6 +129,7 @@ _.last = function(array, n) {
 *      -> should log "a" "b" "c" to the console
 */
 
+
 _.each = function(collection, action) {
     if(Array.isArray(collection)) {
         for(var i = 0; i < collection.length; i++) {
@@ -341,13 +342,11 @@ _.map = function(collection, action) {
 
 _.pluck = function(array, prop) {
     
-    var plucked;
-    for(var i = 0; i < array.length; i++){
-        plucked = _.map(array, function(names) {
-            return names.name;
-        });
-    }
+    var plucked = _.map(array,function(object, i, array){
+        return object[prop];
+    });
     return plucked;
+    
 };
 
 
@@ -532,18 +531,16 @@ _.reduce = function(array, action, seed) {
 *   _.extend(data, {a:"two"}); -> data now equals {a:"two"}
 */
 
-_.extend = function(obj1, obj2, obj3) {
-    
-    for(var x in obj2) {
-        obj1[x] = obj2[x];
-    }
-    if(obj3) {
-        for(var y in obj3) {
-            obj1[y] = obj3[y];
-        }
+
+_.extend = function(obj1, obj2, obj3, etc){
+    for(var i = 1; i < arguments.length; i++){
+        _.each(arguments[i], function(value, key){
+            obj1[key] = value;
+        });
     }
     return obj1;
 };
+
 
 // This is the proper way to end a javascript library
 }());

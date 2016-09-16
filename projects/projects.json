@@ -1,18 +1,1 @@
-{
-    "projects": [{
-        "name": "matchy",
-        "title": "Matchy",
-        "description": "An exercise in data-structures...",
-        "date": "Tuesday, August 30, 2016"
-    }, {
-        "name": "function-master",
-        "title": "Function Master",
-        "description": " Learn to Master the art of the Function",
-        "date": "Thursday, September 1, 2016"
-    }, {
-        "name": "underpants",
-        "title": "Underpants",
-        "description": "Functional Functions for Fun",
-        "date": "Thursday, September 1, 2016"
-    }]
-}
+{"projects":[{"name":"matchy","title":"Matchy","description":"An exercise in data-structures...","date":"Tuesday, August 30, 2016"},{"name":"more-matchy","title":"More Matchy","description":"A continuation of matchy to study functions...","date":"Wednesday, August 31, 2016"},{"name":"function-master","title":"Function Master","description":" Learn to Master the art of the Function","date":"Thursday, September 1, 2016"},{"name":"underpants","title":"Underpants","description":"Functional Functions for Fun","date":"Thursday, September 1, 2016"},{"name":"billypedia","title":"Billypedia","description":"The basics of jQuery","date":"Tuesday, September 13, 2016"}]}
