@@ -29,11 +29,7 @@ var friends = [];
 
 // Function creates a random number between two numbers
 function randNum(min, max) {
-<<<<<<< HEAD
-  return Math.floor(Math.random() * (max - min + 1) + min);
-=======
   return Math.floor(Math.random() * (max - min) + min);
->>>>>>> dffa6bf1be9695855b226a1b7c4c8b9ea4d7fa2f
 }
 
 // Assigns random number between 0 and (Animals Array length)
