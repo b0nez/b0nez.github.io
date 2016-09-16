@@ -139,11 +139,11 @@ function updateObject(obj, key, value) {
 }
 
 function removeProperties(obj, array) {
-    
+
     if (array.length > 0) {
-        for(var x in obj) {
+        for (var x in obj) {
             for (var y = 0; y < array.length; y++) {
-                if(array[y] === x || array[y] == obj[x]) delete obj[x]
+                if (array[y] === x || array[y] == obj[x]) delete obj[x]
             }
         }
     }
@@ -151,9 +151,9 @@ function removeProperties(obj, array) {
 }
 
 function dedup(array) {
-    
+
     var unique = array.filter(function(elem, index, self) {
-    return index == self.indexOf(elem);
+        return index == self.indexOf(elem);
     });
     return unique;
 }
