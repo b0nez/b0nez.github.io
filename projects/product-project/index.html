@@ -4,14 +4,23 @@
 <head>
     <script src="bower_components/lodash/lodash.min.js"></script>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+
+
+    <!-- Link CSS Stylesheets, Main & Bootstrap -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="main.css">
+
+    <!-- Load JavaScript Sources -->
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/notes/notes.js"></script>
     <script type="text/javascript" src="js/lib/spin.min.js"></script>
     <script type="text/javascript" src="js/view/pacifier.js"></script>
     <script type="text/javascript" src="js/products.js"></script>
+
+
     <title>Product Project</title>
+
 </head>
 
 <body>
@@ -23,49 +32,46 @@
         <br>
         
         
-        <div class="container">
-            <div class="row">
-                <div class="col-xs-8 col-xs-offset-2">
-                    <div class="input-group">
-                        <div class="input-group-btn search-panel">
-                            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                    	<span id="search_concept">Filter by</span> <span class="caret"></span>
-                    </button>
-                    
-                            <ul class="dropdown-menu" role="menu">
-                                <li><a href="#contains">Contains</a></li>
-                                <li><a href="#its_equal">It's equal</a></li>
-                                <li><a href="#greather_than">Greather than ></a></li>
-                                <li><a href="#less_than">Less than < </a></li>
-                                <li class="divider"></li>
-                                <li><a href="#all">Anything</a></li>
-                            </ul>
-                        </div>
-                        <input type="hidden" name="search_param" value="all" id="search_param">
-                        <input type="text" class="form-control" name="x" placeholder="Search term...">
-                        <span class="input-group-btn">
-                    <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-                        </span>
-                    </div>
-                </div>
-            </div>
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        <!-- HTML for SEARCH BAR -->
+        <!-- Source http://www.textfixer.com/tutorials/html-search-box.php -->
+        <div id="form-product-search">
+            <form align="center" id="input-search-form" method="get">
+                <input type="text" id="input-search" class="tftextinput2" name="q" size="45" maxlength="120" value="Search our website"><input type="submit" value=">" class="tfbutton2">
+            </form>
+            <div class="tfclear"></div>
         </div>
-        
-        </nav>
-        
         <br>
         <br>
-        
         <main>
-            
+            <section id="section-products"></section>
         </main>
-        
     </div>
+    <!-- Clears Placeholder Text in Searchbox -->
+    <script type="text/javascript">
+        $(function () {
+            $("#input-search").click(function () {
+                if ($("#input-search").val() == "Search our website") {
+                    $("#input-search").val("");
+                }
+            });
+        });
+    </script>
     <script>
-        $(function() {
+        $(function () {
             window.opspark.notes.show();
         });
     </script>
+
 </body>
 
 </html>
