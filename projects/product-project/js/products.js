@@ -1,77 +1,93 @@
-/* global $ _ */
+/* global $ _*/
 
-$(document).ready(function() {
-  $.getJSON('data/product.json', function(products) {
-    // 1. initView //
-    initView(products);
-    
-    // 2. show all the products //
-    showProducts(products);
-  });
+$(document).on('ready', function(event) {
+    $.getJSON('data/product.json', function(products) {
+      
+        createProductList(products).appendTo('.flex-container');
+        filterType(products);
+        lowestToHighest(products);
+        highestToLowest(products);
+        showProducts(products);
+        searchTarget(products);
+        initView(products);
+        
+    }).fail(function() {
+        console.log("getJSON on product data failed!");
+    });
 });
 
 
-
 function initView(products) {
-  // 1. summarize type of products, use the summary array to generate dropdown items in the fiterBy dropdown box
-  // 2. add event listeners for filterBy onChange: callback should find selected filterBy value, use value to filter products by type, pass result to showProducts()
-  // 3. add event listener for search box: callback should pluck out search term, execute recursive search, and pass results to showProducts()
-
-  $('#form-product-search').on('submit', function(event) {
-    event.preventDefault();
-    showProducts(search(products, $('#input-search').val()));
-  });
+    $('.thumbnail').on('click', function(event) {
+        $('.modal-body').empty();
+        var imageUrl = $(event.currentTarget).attr('url');
+        var specs = $(event.currentTarget).attr('specs');
+        var price = $(event.currentTarget).attr('price');
+        $('.modal-body')
+            .append($('<img>')
+            .attr('src', imageUrl)
+            .attr('id', 'temp-image')
+            .addClass('col-sm-6 col-md-6'))
+            .append($('<p>')
+            .html('Price: ' + price + '<br><br>' + specs )
+            .addClass('col-sm-6 col-md-6'));
+        $('#modalBox').modal('show');
+        $('.close').one('click', function() {
+            $('.modal-body').empty();
+        });
+    });
 }
 
-
 function showProducts(products) {
-  // 1. empty all currently showing products //
-  // 2. generate all html to show new list of products//
-      // create a method that returns a <ul> that has all of the <li>, everything is styled correctly
-      $('#section-products')
-        .empty()
-        .append(createProductList(products));
-    
-    // $('.list-products').css('list-style', 'none');
+    $('.allproducts').on('click', function() {
+        $('.list-products').hide();
+        $('.thumbnail').hide();
+        var newList = _.map(products, function(product) {
+            createProductListItem(product).appendTo('.flex-container');
+        });
+        initView();
+        return newList;
+    });
 }
 
 function createProductList(products) {
-  
-  // returns jQuery wrapped <ul>
-  
-  return $('<ul>')  // Returns an Unordered List with Class of "List-Products"
-    .addClass('list-products')
-    .append(_.map(products, function(product) {  // Maps Unordered List with Product Details
-        
-        return $('<li>')
-            .data('product', product)
-            .append(createImageDiv(product.image))
-            .append($('<div>').text(product.desc + " "))
-            .append($('<div>').text(' Price:  $' + product.price))
-            .append($('<div>').text(' In Stock: ' + product.stock));
-            
-    }));
-  // map on products to call createProductListItem
+    return $('<ul>')
+        .attr('id', 'list-products')
+        .addClass('list-products')
+        .append(_.map(products, function(product, index) {
+            return createProductListItem(product);
+        }));
 }
 
 function createProductListItem(product) {
-  // returns jQuery wrapped <li>
-  createImageDiv(`img/product/thumbs/${product.image}`)
-  createProductDetailDiv(product.desc, product.price, product.stock)
+    return $('<li>')
+        .attr('id', 'li-product')
+        .addClass('thumbnail')
+        .attr('url', 'img/product/' + product.image)
+        .attr('specs', product.specs)
+        .attr('price', product.price)
+        .append(createImageDiv('img/product/thumbs/' + product.image))
+        .append(createProductDetailDiv(product.desc, 'Price: $' + product.price.toFixed(2), 'Left in stock: ' + product.stock));
 }
 
-function createImageDiv(path) {
-    // returns jQuery wrapped <div> that has an <img> tag inside //
-    return $('<div>')
-        .append($('<img>').attr('src', 'img/product/thumbs/' + path));
-
+function createImageDiv(url) {
+    return $('<div>').addClass('image-div')
+        .append($('<img>').attr('src', url).addClass('image'));
 }
 
 function createProductDetailDiv(desc, price, stock) {
-  // returns jQuery wrapped <div> which has three childen divs with the desc, price, stock
   
+    desc = $('<div>')
+        .addClass('desc')
+        .html(desc);
+    price = $('<div>')
+        .addClass('price')
+        .html(price);
+    stock = $('<div>')
+        .addClass('stock')
+        .html(stock);
+    return $('<div>').addClass('product-details').append(desc, price, stock);
 }
-
 
 function isCollection(value) {
     if (value === null) return false;
@@ -82,20 +98,91 @@ function isCollection(value) {
 
 
 function search(collection, target) {
-    
-    target = target.toLowerCase();
-    var results = []; // Create Array to hold results
-    _.each(collection, function(value) { // Iterate over Collection with _.each() 
-      if (typeof value === "string") { // Check if Query is a String
-        if(value.toLowerCase().indexOf(target) > -1) {  // If String, Check to see if Query is contained in Target
-          results.push(value); // If Yes, Push Query into Results 
-        }
-      } else if (isCollection(value)) { // Check to see if Query is a Collection (Object/Array)
-        if(search(value, target).length) { // If Yes, Check if Query Array has a length, if yes, use Recursive method
-          results.push(value); // Push Query into Results
-        }
+  target = target.toLowerCase();
+  var results = [];
+  _.each(collection, function(value) {
+    if (typeof value === "string") {
+      if (value.toLowerCase().indexOf(target.toLowerCase()) > -1) {
+        results.push(value);
       }
-    });
-    return results // Return Results Array
+    }
+    else if (isCollection(value)) {
+      if (search(value, target).length) {
+        results.push(value);
+      }
+    }
+  });
+  return results;
 }
 
+
+function filterType(products) {
+  
+    var pluckedTypes = _.unique(_.pluck(products, "type"));
+    var filteredlists = _.map(pluckedTypes, function(pluckedType) {
+        return $('<li>')
+            .attr('id', 'type')
+            .append($('<a href="#">').html(pluckedType))
+            .prependTo('.dropdown-menu')
+            .on('click', function() {
+                $('.list-products').hide();
+                $('.thumbnail').hide();
+                _.map(products, function(product) {
+                    if (product.type === pluckedType) {
+                        return createProductListItem(product).appendTo('.flex-container');
+                    }
+                });
+                initView(products);
+            });
+    });
+    return filteredlists;
+}
+
+function getLowest(products, key) {
+    return products.sort(function(a, b) {
+        return a[key] - b[key];
+    });
+}
+
+function lowestToHighest(products) {
+    $('.lowest').on('click', function() {
+        $('.list-products').hide();
+        $('.thumbnail').hide();
+        _.map(getLowest(products, "price"), function(product) {
+            return createProductListItem(product).appendTo('.flex-container');
+        });
+        initView(products);
+    });
+
+}
+
+function getHighest(products, key) {
+    return products.sort(function(a, b) {
+        return b[key] - a[key];
+    });
+}
+
+function highestToLowest(products) {
+    $('.highest').on('click', function() {
+        $('.list-products').hide();
+        $('.thumbnail').hide();
+        _.map(getHighest(products, "price"), function(product) {
+            return createProductListItem(product).appendTo('.flex-container');
+        });
+        initView(products);
+    });
+}
+
+function searchTarget(products) {
+    $('#button-search').on('click', function(event) {
+        event.preventDefault();
+        $('.list-products').hide();
+        $('.thumbnail').hide();
+        
+        var target = document.getElementById('input').value;
+        _.map(search(products, target), function(product) {
+            return createProductListItem(product).appendTo('.flex-container');
+        });
+        initView(products);
+    });
+}

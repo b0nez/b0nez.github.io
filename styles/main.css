@@ -1,4 +1,6 @@
+/* Import Google Font */
 @import url('https://fonts.googleapis.com/css?family=Lato');
+
 body {
     background: rgb(149, 165, 166);
     color: rgb(45, 45, 45);
@@ -16,8 +18,7 @@ header {
     margin: auto;
 }
 
-
-/* navigation menu */
+/* Navigation Menu */
 
 nav {
     background: rgb(52, 73, 94);
@@ -50,7 +51,7 @@ nav a {
 }
 
 
-/* main container area beneath menu */
+/* Main Container */
 
 main {
     background: rgb(245, 238, 219);
@@ -94,8 +95,6 @@ p {
     padding: 0px;
 }
 
-
-
 [class=interests] header {
     font-size: 1.25em;
 }
@@ -109,3 +108,26 @@ li {
     text-align: auto;
 }
 
+/* Portfolio Stylings */
+
+#portfolio {
+    list-style-type: none;
+    padding: 35px;
+}
+
+#portfolio li {
+    background: #fff;
+    padding: 15px;
+    border-radius: 25px;
+    margin-bottom: 10px;
+    border-width: medium;
+}
+
+#portfolio li:hover {
+    background: #eee;
+}
+
+#portfolio a{
+    text-decoration: none;
+    color: #2d2d2d;
+}

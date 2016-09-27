@@ -3,9 +3,11 @@
 
 <head>
     <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css">
     <link rel="stylesheet" href="css/custom.css" type="text/css" />
+    
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/notes/notes.js"></script>
     <title>A Well of HTML</title>
@@ -17,17 +19,150 @@
 <body>
     <div id="container" class="container">
         <!-- ALL YOUR MARKUP GOES BELOW HERE -->
+        <div class="heading">
+        <a href="https://en.wikipedia.org/wiki/New_Orleans">
+            <img src="img/NewOrleans.jpg" alt="" style="width: 950px">
+        </a>
+        <h1>New Orleans</h1>
+        <h1><small>"The Big Easy"</small></h1>
+        <hr>
+        </div>
+        <p>
+            <b>New Orleans</b> is a major United States port and the largest city and metropolitan area in the state of Louisiana. 
+            The population of the city was <em>343,829</em> as of the 2010 U.S. Census. The New Orleans metropolitan area 
+            (New Orleans, Metairie, Kenner Metropolitan Statistical Area) had a population of <b>1,167,764</b> in <em>2010</em> and 
+            was the <b>46th largest in the United States.</b> The New Orleans Metairie Bogalusa Combined Statistical Area, a larger 
+            trading area, had a 2010 population of <b>1,452,502.</b>
+        </p>
         
+        <p>
+            The city is named after the <b>Duke of Orleans</b>, who reigned as <b>Regent for Louis XV</b> from <b>1715 to 1723</b>,
+            as it was established by French colonists and strongly influenced by their <em>European culture</em>. It is well known 
+            for its distinct French and Spanish Creole architecture, as well as its cross-cultural and multilingual heritage.
+            New Orleans is also famous for its cuisine, music <em>(particularly as the birthplace of jazz)</em>, and its annual celebrations
+            and festivals, most notably <b>Mardi Gras</b>, dating to French colonial times. The city is often referred to as the
+            <b>"most unique"</b> in the United States.
+        </p>
         
+        <p>
+            <b>New Orleans</b> is located in southeastern <em>Louisiana</em>, straddling the <b>Mississippi River</b>. The city and 
+            Orleans Parish <em>(French: paroisse d'Orléans)</em> are coterminous. The city and parish are bounded by the parishes of St. Tammany
+            to the north, St. Bernard to the east, Plaquemines to the south, and Jefferson to the south and west. <b>Lake Pontchartrain</b>,
+            part of which is included in the city limits, lies to the north and Lake Borgne lies to the east.
+        </p>
         
+        <p>
+            Before <b>Hurricane Katrina</b>, Orleans Parish was the most populous parish in <em>Louisiana</em>. It now ranks third in population,
+            trailing neighboring Jefferson Parish, and East Baton Rouge Parish.
+        </p>
         
+        <h3></h3>
+        <ol>
+            <h4>Area</h4>
+            <li>City/Parish  -  350sq mi</li>
+            <li>Land  -  169sq mi</li>
+            <li>Water  -  181sq mi</li>
+        </ol>
+        <ul>
+            <h4>Population</h4>
+            <li>City/Parish  -  389,617</li>
+            <li>Density  -  2,274/sq mi</li>
+            <li>Metro  -  1,262,888</li>
+        </ul>
+        <h4>Demographics</h4>
+        <table>
+            <thead>
+                <tr>
+                    <td>Racial Composition</td>
+                    <th>2010</th>
+                    <th>1990</th>
+                    <th>1970</th>
+                    <th>1940</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>White</td>
+                    <td>33.0%</td>
+                    <td>34.9%</td>
+                    <td>54.5%</td>
+                    <td>69.7%</td>
+                </tr>
+                <tr>
+                    <td>Non-Hispanic</td>
+                    <td>30.5%</td>
+                    <td>33.1%</td>
+                    <td>50.6%</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Black/African American</td>
+                    <td>60.2%</td>
+                    <td>61.9%</td>
+                    <td>45.0%</td>
+                    <td>30.1%</td>
+                </tr>
+                <tr>
+                    <td>Hispanic/Latino</td>
+                    <td>5.2%</td>
+                    <td>3.5%</td>
+                    <td>4.4%</td>
+                    <td>N/A</td>
+                </tr>
+                <tr>
+                    <td>Asian</td>
+                    <td>2.9%</td>
+                    <td>1.9%</td>
+                    <td>0.2%</td>
+                    <td>0.1%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="flex-row">
+            <div>One</div>
+            <div>Two</div>
+            <div>Three</div>
+            <div>Four</div>
+            <div>Five</div>
+        </div>
+        <div class="example-grid">
+            <div class="row">
+                <div class="col-md-4"><img src="img/LAMap.png" style="width: 200px" class="row-img"></img>
+                </div>
+                <div class="col-md-4">Map of Louisiana</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><img src="img/NOLASeal.png" style="width: 200px" class="row-img"></img>
+                </div>
+                <div class="col-md-4">Seal of New Orleans</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4"><img src="img/NOLAFlag.png" style="width: 200px" class="row-img"></img>
+                </div>
+                <div class="col-md-4">Flag of New Orleans</div>
+            </div>
+        </div>
+
+        <h4>Please leave a comment:</h4>
+        <form class="comment-form">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" />
+            </div>
+            <div>
+                <label for="mail">E-mail:</label>
+                <input type="email" id="mail" />
+            </div>
+            <div>
+                <label for="msg">Message:</label>
+                <textarea id="msg"></textarea>
+            </div>
+            <div class="button">
+                <button type="submit">Send</button>
+            </div>
+        </form>
         <!-- ALL YOUR MARKUP GOES ABOVE HERE -->
     </div>
-    <script>
-        $(function () {
-            window.opspark.notes.show();
-        });
-    </script>
 </body>
 
 </html>
