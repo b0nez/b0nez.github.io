@@ -22,12 +22,17 @@ li {
     font-size: 16px;
 }
 
+h4 {
+    margin-top: 50px;
+    
+}
+
 .heading {
     text-align: center;
 }
 
 .comment-form {
-    margin: 60px;
+    margin: 25px;
     width: 400px;
     padding: 1em;
     border: 1px solid #CCC;
