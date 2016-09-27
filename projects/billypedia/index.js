@@ -2,7 +2,6 @@
 $(document).ready(function() {
     $.getJSON('data.json', function(data) {
             // YOUR CODE BELOW HERE //
-            
             // Custom Page Stylings
             $('.heading').css('color', 'black').css('font-size', '35px');
             
@@ -14,14 +13,14 @@ $(document).ready(function() {
                     
             $('nav').css('border-radius', '25px')
                     .css('margin-bottom', '10px')
-                    .css('background-image', 'url(turntable2.gif)') //Adds Animated Turntable Background Image
+                    .css('background-image', 'url(turntable2.gif)')
                     .css('background-position', 'center');
                     
-            $('main').css('border-radius', '15px'); // Rounds corner of main body
-            $('body').css('background-color', '#7f8c8d'); // Changes background color to gra
+            $('main').css('border-radius', '15px');
+            $('body').css('background-color', '#7f8c8d');
             
-            $('#list-top-rated').css('list-style', 'none'); // Removes bullet note style
-            $('#section-bio p:last-child').remove(); // Removes paragraph about Divorce
+            $('#list-top-rated').css('list-style', 'none');
+            $('#section-bio p:last-child').remove();
             
             // Map List of Discography Top Rated
             let topRated = data.discography.topRated;
@@ -59,7 +58,6 @@ $(document).ready(function() {
                 }).fadeIn('fast');
             });
             
-            
             // Appends General Recordings Section to Sidebar
             $('#sidebar')
                 .append($('<section>')
@@ -75,7 +73,6 @@ $(document).ready(function() {
                 .append($('<ul>')
                     .attr('id', 'list-recordings'));
                     
-                    
             // Map List of Discography Recordings
             var recordings = data.discography.recordings;
             let listRecordings = _.map(recordings, function(recording) {
@@ -87,7 +84,6 @@ $(document).ready(function() {
             });
             $('#list-recordings').append(listRecordings).css('padding', 5);
             
-            
             // Discography Images Container
             $('#header-recordings').append($('<div>').attr('id', 'image-container-recordings')
                 .attr('class', 'image-container'));
@@ -95,13 +91,12 @@ $(document).ready(function() {
                 .attr('src', 'images/album/eastern-rebellion.jpg')
                 .attr('class', 'image').attr('id', 'image-recordings'));
                 
-                
             // Recordings Event Listener
             $('.title-recordings').on('click', function(event) {
                 let elem = $(event.currentTarget);
                 $('#image-recordings').fadeOut('fast', function() {
                     $('#image-recordings').attr('src', elem.attr('art'));
-                }).fadeIn('fast')
+                }).fadeIn('fast');
             });
             
             // More Custom CSS Stylings
@@ -129,14 +124,13 @@ $(document).ready(function() {
                 .css('border-radius', '25px')
                 .css('border-color', '#7f8c8d');
                 
-                
             // Fade IN/OUT Random Image for Billy Higgins
             $('#image-billy').on('click', function(event) {
                 
                 let elem = $(event.currentTarget);
                 let i = elem.attr('i');
                 if (i < data.images.billy.length - 1) {
-                    let src = data.images.billy[i++];
+                    var src = data.images.billy[i++];
                     elem.fadeOut('fast', function() {
                         $('#image-billy')
                             .attr('src', "images/billy/billy-" + i + ".jpg")
@@ -153,14 +147,14 @@ $(document).ready(function() {
             });
             
             // Creates Table for Billy's Gear
-            var createTable = function(equipment) { // Function Builds Entire Table from Rows
-                var createRow = function(instrument) { // Function Builds Each Row one at a time
-                    var $row = $("<tr>");   // Assigns Table Row to the variable $row
-                    var $type = $("<td>").text(instrument.type);    // Assigns Instrument Type to Table Data Cell variable $type
-                    var $desc = $("<td>").text(instrument.desc)     // Assigns Instrument Decription to Table Data Cell variable $desc
-                        .attr('class', 'instrument-desc');  // Assigns a Class for Each Instrument Description
-                    $row.append($type);     // Appends Instrument Type to Each Row
-                    $row.append($desc);     // Appends Instrument Description to Each Row
+            var createTable = function(equipment) {
+                var createRow = function(instrument) {
+                    var $row = $("<tr>");
+                    var $type = $("<td>").text(instrument.type);
+                    var $desc = $("<td>").text(instrument.desc)
+                        .attr('class', 'instrument-desc');
+                    $row.append($type);
+                    $row.append($desc);
                     return $row;
                 };
                 var $table = $("<table>");
@@ -174,7 +168,7 @@ $(document).ready(function() {
                 .append($('<section>').attr('id', 'section-rider'));
             createTable(data.rider).appendTo('#section-rider').attr('id', 'table-rider');
             
-            // Adds a Header for Table named "Billy's Gear"
+            // Adds a Header for Table
             $('#section-rider')
                 .prepend($('<header>')
                 .text("Billy's Gear")
@@ -183,8 +177,6 @@ $(document).ready(function() {
             // Adds a Header for Instrument & Description
             $('#table-rider').prepend($('<th>').text('Description'));
             $('#table-rider').prepend($('<th>').text('Instrument'));
-            
-            
             // YOUR CODE ABOVE HERE //
         })
         .fail(function() {
